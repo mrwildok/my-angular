@@ -3,17 +3,16 @@ import {Component} from 'angular2/core';
 @Component({
     selector: 'main-danicargon',
     template: `
-    	<h1>{{signature.saludo}}</h1>
-    	<ul id="red">
-    		<li class="blue"><a href="#">Option 1</a></li>
-    		<li class="blue"><a href="#">Option 2</a></li>
-    		<li class="blue"><a href="#">Option 3</a></li>
-    		<li class="blue"><a href="#">Option 4</a></li>
-    		<li class="blue"><a href="#">Option 5</a></li>
-    	</ul>
-        <h3>{{signature.despedida}}</h3>
+    <ul>
+      <li *ngFor="#contacts of contacts">
+        {{contacts.name}} {{contacts.lastname}} : {{contacts.mail}}
+      </li>
+    </ul>
     `,
+    styleUrls: ["../src/css/app.css"]
 })
 export class AppComponent {
-    public signature = {saludo: "Hey I'm Daniel Cárdenas", despedida: "Thanks for wach it" , test: "it's a test"};
+  public contacts = [
+    { name: "Daniel" , lastname: "Cárdenas" , mail: "daniel.cardenas@controlbox.net"} , { name: "Valentina" , lastname: "Salazar" , mail: "valentina.salzar@controlbox.net"} , { name: "manuela" , lastname: "Villada" , mail: "manuel.vilalda@controlbox.net"},
+  ];
 }
