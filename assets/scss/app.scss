@@ -1,3 +1,24 @@
+// Colors
+
+$white-d: rgb(225,225,225);
+$black: rgb(0,0,0);
+$gray-light: rgb(235,235,235);
+$gray-dark: rgb(65,64,66);
+$green: rgb(36,235,151);
+$blue: rgb(68,183,232);
+$red: rgb(222,63,68);
+$border-top:rgba(255,255,255,.18);
+$border-bottom:rgba(0,0,0,.27);
+$link: rgb(245,78,98);
+
+// mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
 body {
   padding: 32px;
   margin: 32px;
@@ -5,22 +26,47 @@ body {
   font-size: 16px;
 }
 
-#red {
-	background-color:blue;
-	li.blue {
-		background-color:red;
-		display:inline;
-		a {
-			color: #fff;
-			padding: 5% 3%;
-		}
-	}
+a {
+  @include border-radius(3px);
+  padding: 1%;
 }
-
-#green {
-	background-color: green !important;
+.green {
+  @extend .button;
+  background-color: $green;
+  color: $white-d;
 }
-
-.clicked {
-  color:red;
+.red {
+  @extend .button;
+  background-color: $red;
+  color: $white-d;
+}
+.blue {
+  @extend .button;
+  background-color: $blue;
+  color: $white-d;
+}
+ul {
+  background: $gray-dark;
+  @include border-radius(3px);
+  color: $gray-light;
+  padding: 0;
+  width: 30%;
+  li {
+    border-top: 1px solid $border-top;
+    border-bottom: 1px solid $border-bottom;
+    color: $gray-light;
+    list-style: none;
+    padding: 2%;
+    display: inline-block;
+  }
+}
+label {
+  font-size: 0.8em;
+  display: inline-block;
+  input {
+    padding: 2%;
+  }
+}
+.visited {
+  color: $link;
 }
